@@ -1,0 +1,14 @@
+{
+  "name": "energy-power-management",
+  "version": "1.0.0",
+  "description": "Energy Power Management platform",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm install",
+    "build": "echo 'Build script'",
+    "test": "echo 'Test script'"
+  },
+  "keywords": ["energy", "power", "management"],
+  "author": "",
+  "license": "ISC"
+}
