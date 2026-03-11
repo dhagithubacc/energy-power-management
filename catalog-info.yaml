@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: Energy-Management-Platform
+  description: "Platform for managing energy assets and optimization"
+spec:
+  owner: group:default/catalog-admin
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  # IMPORTANT: must be DNS-compliant; use lowercase + hyphens only
+  name: Energy_Power_Management
+  description: "Energy Power Management"
+  tags:
+    - testing 
+    - sonar 
+    - experimental
+  annotations:
+    expensetracker.io/appid: EnergyPowerManagementComponent
+    github.com/project-slug: energy-power-management
+    backstage.io/techdocs-ref: dir:.
+    flowsource/jenkins-pipelines: "Energy-Power-Management-Pipeline"
+    flowsource/jenkins-pipelines-trigger: "Energy-Power-Management-Pipeline"
+    flowsource/aws-repo-name: ""
+    flowsource/aws-region: "ap-southeast-2"
+    flowsource/durationInDays: '60'
+    flowsource/aws-project-name: flowsource-demo-v1
+    flowsource/sonarqube-project-key: energy-power-management
+    flowsource/github-repo-owner: dhagithubacc
+    flowsource/github-repo-name: energy-power-management
+    flowsource/checkmarx-project-id: sonarscan-testing
+    flowsource/blackduck-project-id: sonarscan-testing
+    backstage.io/kubernetes-namespace: sonar-ns
+    backstage.io/kubernetes-label-selector: app=sonarscan-testing
+    flowsource/jira-project-key: EPM
+    flowsource/jira-storypoint-field: 'Story point estimate'
+    flowsource/jira-filter-field-value: ''
+    flowsource/jira-filter-field-key: ''
+    flowsource/jira-enable-current-sprint: 'true'
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/catalog-admin
+  system: energy-management-platform
+  providesApis:
+    - api:default/sonarscan-testing-api
