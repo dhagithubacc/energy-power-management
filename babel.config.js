@@ -1,0 +1,1 @@
+{\n  "presets": [\n    "@babel/preset-env",\n    "@babel/preset-react"\n  ]\n}
