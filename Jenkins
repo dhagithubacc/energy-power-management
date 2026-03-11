@@ -1,0 +1,42 @@
+pipeline {
+    agent any   // Run on any available agent
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Pull code from Git
+                git branch: 'main', url: 'https://github.com/dhagithubacc/energy-power-management.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Example build command
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run unit tests
+                sh 'mvn test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Deployment step (placeholder)
+                echo 'Deploying application...'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Please check logs.'
+        }
+    }
+}
